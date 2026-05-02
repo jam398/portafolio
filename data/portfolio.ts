@@ -23,6 +23,25 @@ export type FeaturedProject = {
   tags: string[];
   planned?: boolean;
   whyNext?: string;
+  sequence?: FlagshipProjectSequence;
+};
+
+export type FlagshipProjectScene = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  preview: string;
+  body: string;
+  highlights: string[];
+  signalTags: string[];
+};
+
+export type FlagshipProjectSequence = {
+  railLabel: string;
+  intro: string;
+  panelSummary: string;
+  coreTags: string[];
+  scenes: FlagshipProjectScene[];
 };
 
 export type SkillGroup = {
@@ -159,6 +178,75 @@ export const featuredProjects: FeaturedProject[] = [
       "Financial logic",
       "Payoff simulation",
     ],
+    sequence: {
+      railLabel: "Debt Pressure Lab walkthrough",
+      intro:
+        "This is the project I use to show one real problem, one real product, and one real full-stack build.",
+      panelSummary:
+        "A full-stack financial education app that turns debt pressure into something a student can explore, question, and understand.",
+      coreTags: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Database",
+        "Auth",
+        "OpenAI API",
+      ],
+      scenes: [
+        {
+          id: "why-it-exists",
+          eyebrow: "Scene 1",
+          title: "Why it exists",
+          preview: "Real debt pressure is easier to ignore when the numbers stay abstract.",
+          body:
+            "I built Debt Pressure Lab to make high-interest debt visible instead of abstract, so students can inspect the tradeoffs instead of guessing through them.",
+          highlights: [
+            "Frames debt as a real student problem, not a generic finance lesson.",
+            "Uses interaction to show stakes at the moment the user is exploring them.",
+          ],
+          signalTags: ["Student problem", "Financial logic"],
+        },
+        {
+          id: "what-i-built",
+          eyebrow: "Scene 2",
+          title: "What I built",
+          preview: "The project combines calculation, guidance, and reference content in one flow.",
+          body:
+            "The app combines a payoff simulator, AI chat help, a debt workspace, and glossary support so learning and decision-making happen in the same flow.",
+          highlights: [
+            "Simulator, chat, workspace, and glossary all support the same user journey.",
+            "The AI help is tied to the product workflow instead of floating beside it.",
+          ],
+          signalTags: ["Simulator", "Workspace"],
+        },
+        {
+          id: "how-it-works",
+          eyebrow: "Scene 3",
+          title: "How it works",
+          preview: "The UI is backed by real application logic, storage, and validation.",
+          body:
+            "Behind the UI, the project uses backend logic, auth, storage, validation, and AI tool calls so it behaves like a real application instead of a static demo.",
+          highlights: [
+            "Connects API routes, auth, and persistence in one working flow.",
+            "Keeps assistant behavior grounded with structured tool use and validation.",
+          ],
+          signalTags: ["API routes", "Validation"],
+        },
+        {
+          id: "what-it-proves",
+          eyebrow: "Scene 4",
+          title: "What it proves",
+          preview: "This is the project that anchors the portfolio's technical credibility.",
+          body:
+            "This is the project I use to prove full-stack implementation, AI integration inside a real workflow, and technical discipline through testing and documentation.",
+          highlights: [
+            "Shows full-stack work instead of isolated UI mockups.",
+            "Shows testing, documentation, and workflow discipline as part of the build.",
+          ],
+          signalTags: ["Testing", "Documentation"],
+        },
+      ],
+    },
   },
   {
     title: "RAG-Based AI Career Gap Analyzer",

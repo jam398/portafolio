@@ -6,10 +6,10 @@
 - **Status:** Implementing
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-04-29
-- **Last Updated:** 2026-04-30
+- **Last Updated:** 2026-05-01
 - **Related Issue / Ticket:** None
-- **Child Specs:** SPEC-002, SPEC-003, SPEC-004, SPEC-005, SPEC-006, SPEC-007
-- **Related Sprints:** Sprint 0 - Portfolio Foundation; Sprint 1 - Narrative and Project Evidence; Sprint 2 - AI Workflow and Closeout Surfaces; Sprint 3 - Truth Verification and Final Submission; Sprint 4 - Motion Foundation and Section Pacing; Sprint 5 - Hero Atmosphere and Top-of-Page Presence; Sprint 6 - Interactive Surface Polish
+- **Child Specs:** SPEC-002, SPEC-003, SPEC-004, SPEC-005, SPEC-006, SPEC-007, SPEC-008, SPEC-009, SPEC-010
+- **Related Sprints:** Sprint 0 - Portfolio Foundation; Sprint 1 - Narrative and Project Evidence; Sprint 2 - AI Workflow and Closeout Surfaces; Sprint 3 - Truth Verification and Final Submission; Sprint 4 - Motion Foundation and Section Pacing; Sprint 5 - Hero Atmosphere and Top-of-Page Presence; Sprint 6 - Interactive Surface Polish; Sprint 7 - Debt Pressure Lab Scrollytelling Sequence; Sprint 8 - Featured Project Progressive Disclosure; Sprint 9 - Featured Project Scroll-Stage Sequence
 
 ## Problem Statement
 
@@ -34,7 +34,7 @@ One oversized spec created avoidable friction because it mixed global portfolio 
 
 The repository now contains a working Next.js portfolio application and completed Sprint 0 and Sprint 1 artifacts. The live page currently renders Navigation, Hero, Proof cards, My Direction, Featured Projects, and Skills.
 
-The live page now renders the full required section flow through the footer. Final truth verification still remains in Sprint 3, and the presentation-refinement work is now split into three bounded slices so motion foundation, hero atmosphere, and interaction polish do not compete inside one oversized spec.
+The live page now renders the full required section flow through the footer. Final truth verification still remains in Sprint 3, the presentation-refinement work is split into bounded slices, Sprint 7 introduced the initial flagship-project sequence, Sprint 8 explored a progressive-disclosure refinement that still left the section visually card-stack based, and Sprint 9 is now actively implementing the true one-scene-at-a-time scroll stage for the flagship project.
 
 ## Proposed Approach
 
@@ -63,6 +63,18 @@ Use this spec as the umbrella contract for the entire portfolio program and keep
 6. **SPEC-007: Interactive Surface Polish**
    - Governs hover, focus, and interaction refinement across key portfolio surfaces.
    - Covers Sprint 6.
+
+7. **SPEC-008: Flagship Project Scrollytelling Sequence**
+   - Governs one bounded guided sequence around Debt Pressure Lab inside the Featured Projects area.
+   - Covers Sprint 7.
+
+8. **SPEC-009: Featured Project Progressive Disclosure**
+   - Governs the follow-on refinement that reduces simultaneous flagship-project copy while keeping the technical proof visible.
+   - Covers Sprint 8.
+
+9. **SPEC-010: Featured Project Scroll-Stage Sequence**
+   - Governs the successor interaction model where one left-side scene is visible at a time while the right proof panel remains sticky.
+   - Covers Sprint 9.
 
 ## Architecture / Flow Notes
 
@@ -120,11 +132,22 @@ The required page order remains:
 3. Sprint 4 maps to SPEC-005.
 4. Sprint 5 maps to SPEC-006.
 5. Sprint 6 maps to SPEC-007.
-6. Sprint 3 maps to SPEC-004.
+6. Sprint 7 maps to SPEC-008.
+7. Sprint 8 maps to SPEC-009.
+8. Sprint 9 maps to SPEC-010.
+9. Sprint 3 maps to SPEC-004.
 
 ## Rollout / Sequencing Notes
 
-Use the umbrella spec for global rules and the child specs for slice-specific implementation details. If a future change only affects one slice, update that child spec instead of expanding the umbrella spec again. The three presentation-refinement slices should land before final submission closeout so final QA reflects the actual shipped presentation.
+Use the umbrella spec for global rules and the child specs for slice-specific implementation details. If a future change only affects one slice, update that child spec instead of expanding the umbrella spec again. The presentation-refinement slices, the flagship-project sequence, and any approved follow-on interaction refinements should land before final submission closeout so final QA reflects the actual shipped presentation.
+
+### QA Addendum - 2026-05-01 (Scroll-Stage Successor)
+
+- **Reviewer:** GitHub Copilot
+- **Scope:** Added `SPEC-010` and Sprint 9 to represent the one-scene-at-a-time scroll-stage successor to the interaction model attempted in Sprint 8.
+- **Checks Performed:** Read the updated umbrella spec; checked that the new child spec preserves the required page order and truth rules; checked that prior artifacts remain preserved instead of rewritten.
+- **Findings:** None.
+- **Verdict:** PASS
 
 ## Completion Criteria
 
@@ -212,3 +235,11 @@ These do not block Sprint 2 because the child specs explicitly allow honest plac
 - **What was fixed:** The spec now functions as a short umbrella program contract, while slice-specific detail lives in `SPEC-002`, `SPEC-003`, and `SPEC-004`.
 - **Residual risks:** Final truth verification is still required for personal links, live-demo availability, and Debt Pressure Lab claim validation before the portfolio can be marked fully complete.
 - **Recommendation:** Ready for continued sprinting
+
+### QA Addendum - 2026-05-01
+
+- **Reviewer:** GitHub Copilot
+- **Scope:** Added `SPEC-009` as a new child spec for featured-project progressive disclosure and updated current-state / rollout wording to reflect the follow-on refinement path.
+- **Checks Performed:** Read the updated umbrella spec; checked that the new child spec does not override the global truth rules or change the required page order; checked that the new slice remains local to the Featured Projects section.
+- **Findings:** None.
+- **Verdict:** PASS

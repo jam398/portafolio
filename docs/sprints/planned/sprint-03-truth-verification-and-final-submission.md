@@ -6,7 +6,7 @@
 - **Status:** Planned
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-04-30
-- **Last Updated:** 2026-04-30
+- **Last Updated:** 2026-05-01
 
 > **Artifact location rule:** Project workflow artifacts live under `docs/`.
 > - Specs: `docs/specs/spec-###-[slug].md`
@@ -26,7 +26,7 @@ Finalize the portfolio for submission by replacing placeholders only with confir
 
 ## Carry-Forward Context
 
-Sprint 2 completed the visible page structure through the footer and verified that unresolved GitHub, LinkedIn, Resume, and Email values remain explicit pending placeholders with no fake live anchors in the contact section. Sprint 4, Sprint 5, and Sprint 6 are now complete, so the current baseline includes the shared reveal system, hero atmosphere layer, and refined interaction polish. Sprint 3 is now the remaining closeout pass and should replace placeholders only after the user has supplied confirmed final values.
+Sprint 2 completed the visible page structure through the footer and verified that unresolved GitHub, LinkedIn, Resume, and Email values remain explicit pending placeholders with no fake live anchors in the contact section. Sprint 4, Sprint 5, and Sprint 6 are now complete, so the current baseline includes the shared reveal system, hero atmosphere layer, and refined interaction polish. Sprint 7 is still active as the baseline flagship-project sequence slice, with true full-width desktop verification still pending in this environment. Sprint 8 is now active as the preserved progressive-disclosure refinement attempt for that same flagship surface. Sprint 9 is now active as the successor interaction model that replaces the visible left-side card stack with a true one-scene-at-a-time scroll stage. Sprint 3 remains the closeout pass and should replace placeholders only after the user has supplied confirmed final values and any approved pre-closeout presentation slices are complete.
 
 ## Scope
 
@@ -57,6 +57,9 @@ List verified files, components, APIs, or data this sprint depends on. Confirm e
 | Completed Sprint 4 | `docs/sprints/completed/sprint-04-motion-and-interaction-refinement.md` | Verified shared reveal and pacing baseline | Verified existing file |
 | Completed Sprint 5 | `docs/sprints/completed/sprint-05-hero-atmosphere-and-top-of-page-presence.md` | Verified hero-atmosphere baseline | Verified existing file |
 | Completed Sprint 6 | `docs/sprints/completed/sprint-06-interactive-surface-polish.md` | Verified interaction-polish baseline | Verified existing file |
+| Active Sprint 7 | `docs/sprints/active/sprint-07-debt-pressure-lab-scrollytelling-sequence.md` | Bounded flagship-project presentation enhancement that should finish desktop verification before closeout | Verified existing file |
+| Active Sprint 8 | `docs/sprints/active/sprint-08-featured-project-progressive-disclosure.md` | Follow-on flagship-project refinement that should finish desktop verification before closeout if it ships | Verified existing file |
+| Active Sprint 9 | `docs/sprints/active/sprint-09-featured-project-scroll-stage-sequence.md` | Successor interaction model that should land first if the one-scene scroll stage is part of the final shipped portfolio | Verified existing file |
 | Current app shell | `app/page.tsx`, `app/globals.css`, `data/portfolio.ts` | Primary update surfaces for final content and verification on top of the polished UI baseline | Verified existing files |
 | Project README | `README.md` | Expected to be created in this sprint | Does not exist yet |
 
@@ -129,7 +132,7 @@ List verified files, components, APIs, or data this sprint depends on. Confirm e
 - The user must supply the final GitHub, LinkedIn, Resume, and email values if placeholders are to be removed.
 - Debt Pressure Lab claim validation depends on checking the source repository before wording is finalized.
 - Sprint 2 must complete first so the full page surface exists before final QA.
-- Sprint 4, Sprint 5, and Sprint 6 should complete first if their refinement work is part of the final shipped portfolio.
+- Sprint 4, Sprint 5, Sprint 6, Sprint 7, Sprint 8, and Sprint 9 should complete first if their refinement work is part of the final shipped portfolio.
 
 ## Risks / Watchouts
 
@@ -200,12 +203,11 @@ None.
 
 ### Carry-Forward Updates
 
-- This sprint must preserve Sprint 2's truthful placeholder behavior for any still-unresolved GitHub, LinkedIn, Resume, or Email value and should only replace those states when the user confirms final destinations. It now operates on top of the completed Sprint 4 through Sprint 6 presentation state.
+- This sprint must preserve Sprint 2's truthful placeholder behavior for any still-unresolved GitHub, LinkedIn, Resume, or Email value and should only replace those states when the user confirms final destinations. It now operates on top of the completed Sprint 4 through Sprint 6 presentation state and any approved Sprint 7 flagship-project sequence work.
 
 ### Final QA Summary
 
-- **What was checked:** Sprint 3 scope, file plan, truth-control boundaries, and verification steps were reviewed against the governing spec and the currently implemented post-Sprint-2 repository state, now with planned Sprint 4, Sprint 5, and Sprint 6 presentation-refinement slices before final closeout if approved.
-- **What was checked:** Sprint 3 scope, file plan, truth-control boundaries, and verification steps were reviewed against the governing spec and the currently implemented repository state, which now includes the completed presentation-refinement slices from Sprint 4 through Sprint 6 before final closeout.
+- **What was checked:** Sprint 3 scope, file plan, truth-control boundaries, and verification steps were reviewed against the governing spec and the currently implemented repository state, which now includes the completed presentation-refinement slices from Sprint 4 through Sprint 6, the active Sprint 7 and Sprint 8 flagship-project refinements, and the active Sprint 9 successor interaction model before final closeout.
 - **What was fixed:** None.
 - **Residual risks:** Execution remains blocked on unresolved personal links and final project-claim verification until those inputs are available.
 - **Recommendation:** Ready to implement once prerequisites are met
