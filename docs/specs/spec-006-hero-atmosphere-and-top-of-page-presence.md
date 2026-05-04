@@ -129,3 +129,11 @@ None.
 - **What was fixed:** None.
 - **Residual risks:** The hero can still become visually heavy during implementation if the sprint ignores the readability constraints.
 - **Recommendation:** Ready for sprinting
+
+### QA Addendum - 2026-05-04
+
+- **Reviewer:** GitHub Copilot
+- **Scope:** Added an owner profile photo to the hero direction card using the existing `public/20260331_184256.jpg` asset.
+- **Checks Performed:** Confirmed the photo remains a compact identity signal, does not replace the hero headline or CTA structure, and preserves the professional top-of-page tone required by this spec.
+- **Findings:** None.
+- **Verdict:** PASS

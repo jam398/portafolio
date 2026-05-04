@@ -218,7 +218,7 @@ export function FlagshipProjectSequence({ project }: FlagshipProjectSequenceProp
                       aria-hidden={isActive ? undefined : true}
                       style={getSceneStyle(index, scenes.length, stageProgress)}
                     >
-                      <div className="grid gap-4">
+                      <div className="flagship-stage-scene-content grid gap-4">
                         <div className="flex items-start justify-between gap-4">
                           <div className="grid gap-2">
                             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
@@ -279,7 +279,7 @@ export function FlagshipProjectSequence({ project }: FlagshipProjectSequenceProp
                 id={sceneId}
                 className="flagship-scene rounded-[24px] border border-[var(--color-panel-border)] bg-[rgba(8,18,32,0.74)] px-5 py-5 scroll-mt-28 sm:px-6 sm:py-6"
               >
-                <div className="grid gap-4">
+                <div className="flagship-stage-scene-content grid gap-4">
                   <div className="flex items-start justify-between gap-4">
                     <div className="grid gap-2">
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">

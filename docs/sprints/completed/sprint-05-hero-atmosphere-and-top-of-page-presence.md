@@ -194,3 +194,10 @@ None.
 - **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS; browser QA on `http://127.0.0.1:3003` confirmed the hero atmosphere layer renders without console errors, hero content remains readable, and reduced-motion emulation disables the decorative hero animation while keeping hero motion items visible.
 - **Deviations From Plan:** `app/page.tsx` did not require changes because the hero-only treatment fit inside `components/HeroSection.tsx` and `app/globals.css`.
 - **Carry-Forward Updates For Next Sprint:** Sprint 6 should preserve the settled hero atmosphere and shared reveal system while refining interaction quality around them rather than reopening top-of-page presentation.
+
+## Post-Completion Addendum - 2026-05-04
+
+- **Change:** Added the owner's profile photo to the hero direction card as a compact identity signal.
+- **Files:** `components/HeroSection.tsx`, `data/portfolio.ts`, `app/globals.css`, `public/20260331_184256.jpg`
+- **Verification:** `npm run lint` PASS; `npm run build` PASS; production-browser checks at 1366x900 and 390x844 confirmed the hero profile image loads through Next Image, keeps usable desktop/mobile sizing, and creates no page-level horizontal overflow. A desktop card screenshot confirmed the crop keeps the face centered. A follow-up browser check at 1552x899 confirmed the portrait stays in a compact 112px frame and no Next Image `fill` parent-position warning remains.
+- **Scope Check:** This keeps the hero content, CTA structure, and truthful positioning intact while strengthening first-screen identity.

@@ -99,6 +99,7 @@ Implement the Featured Projects flagship experience as a scroll-stage sequence:
 - Manual desktop browser check that only one left-side scene is visible at a time.
 - Manual desktop browser check that the sticky proof panel keeps the repo link and core stack visible throughout the sequence.
 - Manual desktop browser check that the full stage releases cleanly after the final scene.
+- Manual desktop browser check at a short viewport height that the stage does not cause nav overlap, text overflow, or card clipping.
 - Manual mobile browser check that the fallback remains readable and does not become a long card wall.
 - Manual reduced-motion check that the section remains understandable without the staged motion.
 

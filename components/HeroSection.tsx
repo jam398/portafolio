@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 
 import { Badge } from "@/components/Badge";
@@ -79,7 +80,25 @@ export function HeroSection() {
           >
             <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(89,225,255,0.7),transparent)]" />
             <div className="grid gap-4">
-              <Badge tone="muted">Current Direction</Badge>
+              <div className="hero-profile-lockup">
+                <div className="hero-profile-photo">
+                  <Image
+                    src={profile.photo.src}
+                    alt={profile.photo.alt}
+                    width={160}
+                    height={160}
+                    priority
+                    sizes="(min-width: 1024px) 7rem, 5.4rem"
+                    className="hero-profile-image"
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <Badge tone="muted">Current Direction</Badge>
+                  <p className="text-sm font-semibold leading-5 text-[var(--color-text)]">
+                    {profile.name}
+                  </p>
+                </div>
+              </div>
               <p className="text-sm leading-7 text-[var(--color-text-muted)]">
                 {profile.direction}
               </p>
