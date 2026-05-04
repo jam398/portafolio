@@ -12,3 +12,6 @@ yarn-error.log*
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# Local workflow reference templates
+docs/references/

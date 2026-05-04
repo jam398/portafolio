@@ -3,10 +3,10 @@
 ## Metadata
 
 - **ID:** SPRINT-08
-- **Status:** Active
+- **Status:** Completed
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-05-01
-- **Last Updated:** 2026-05-01
+- **Last Updated:** 2026-05-04
 
 > **Artifact location rule:** Project workflow artifacts live under `docs/`.
 > - Specs: `docs/specs/spec-###-[slug].md`
@@ -55,7 +55,7 @@ In scope:
 | Asset | Path | Role | Notes |
 |-------|------|------|-------|
 | Governing spec | `docs/specs/spec-009-featured-project-progressive-disclosure.md` | Governing requirements for the text-density refinement | Verified existing file |
-| Active Sprint 7 | `docs/sprints/active/sprint-07-debt-pressure-lab-scrollytelling-sequence.md` | Current flagship-project sequence baseline | Verified existing file |
+| Completed Sprint 7 | `docs/sprints/completed/sprint-07-debt-pressure-lab-scrollytelling-sequence.md` | Current flagship-project sequence baseline for this historical refinement | Verified existing file |
 | Flagship sequence component | `components/FlagshipProjectSequence.tsx` | Local story-driven project surface refined in this sprint | Updated in this sprint |
 | Project section shell | `components/ProjectsSection.tsx` | Owns the Featured Projects section entry point | Verified existing file |
 | Content model | `data/portfolio.ts` | Source of truth for project content and scene data | Updated in this sprint |
@@ -120,7 +120,7 @@ In scope:
 
 - Sprint 7 provides the current flagship-project sequence baseline.
 - Sprint 3 final closeout should wait until Sprint 8 completes if this refinement is intended for the final shipped portfolio.
-- True full-width desktop browser verification remains pending because the integrated browser available in-session is width-limited.
+- The user confirmed a real-browser view check on 2026-05-04, clearing the earlier full-width desktop verification gap. Sprint 8 remains a completed historical refinement and is superseded by Sprint 9 for the final shipped interaction.
 
 ## Risks / Watchouts
 
@@ -146,8 +146,8 @@ This sprint is one bounded, verifiable unit because it changes only the informat
 - [x] All in-scope tasks implemented
 - [x] Non-goals preserved
 - [x] Carry-forward constraints respected
-- [ ] Acceptance criteria met
-- [ ] Verification passed
+- [x] Acceptance criteria met
+- [x] Verification passed
 - [x] No known code blocking gaps remain
 
 ## Sprint Doc QA
@@ -162,7 +162,7 @@ This sprint is one bounded, verifiable unit because it changes only the informat
 
 ### Governing Artifacts
 
-- **Sprint Path:** `docs/sprints/active/sprint-08-featured-project-progressive-disclosure.md`
+- **Sprint Path:** `docs/sprints/completed/sprint-08-featured-project-progressive-disclosure.md`
 - **Spec Path:** `docs/specs/spec-009-featured-project-progressive-disclosure.md`
 
 ### QA Mode
@@ -186,25 +186,25 @@ None in the sprint document.
 ### Verification Results
 
 - **Automated:** `npm run lint` PASS; `npm run build` PASS.
-- **Manual:** Browser QA on the available `680px` integrated browser width confirmed 4 scenes still render, only 1 scene expands at a time, the active scene changes from "Why it exists" to "What it proves" when the page is scrolled deeper into the sequence, the core stack remains visible in the proof panel, the planned Assignment 2 card remains visible as a normal secondary card, and reduced-motion plus mobile-sized checks remain readable. Direct full-width desktop verification remains pending because the current browser environment is width-limited.
+- **Manual:** Browser QA on the available `680px` integrated browser width confirmed 4 scenes still render, only 1 scene expands at a time, the active scene changes from "Why it exists" to "What it proves" when the page is scrolled deeper into the sequence, the core stack remains visible in the proof panel, the planned Assignment 2 card remains visible as a normal secondary card, and reduced-motion plus mobile-sized checks remain readable. The user later confirmed a real-browser view check on 2026-05-04, clearing the earlier full-width desktop verification gap.
 
 ### Carry-Forward Updates
 
-- Sprint 9 now replaces Sprint 8 as the next flagship-project interaction slice.
-- Sprint 3 should perform final truth verification on top of the post-Sprint-9 UI state after one true full-width desktop browser pass confirms the final flagship-project behavior.
+- Sprint 9 replaces Sprint 8 as the shipped flagship-project interaction slice.
+- Sprint 3 should perform final truth verification on top of the completed Sprint 9 and Sprint 10 baseline.
 
 ### Final QA Summary
 
 - **What was checked:** Sprint 8 scope, file plan, changed files, automated validation, scene-disclosure behavior, stable core-stack visibility, planned-project honesty, and reduced-motion/mobile readability were reviewed against SPEC-009.
 - **What was fixed:** None after the final validation pass. A local lint warning caused by an invalid `aria-expanded` attribute on an `article` was removed during implementation.
-- **Residual risks:** True full-width desktop verification is still outstanding because the integrated browser available in this session does not expose a wide enough viewport.
-- **Recommendation:** Keep Sprint 8 active until one full-width desktop browser verification pass is recorded.
+- **Residual risks:** None for Sprint 8 closeout. The progressive-disclosure model is completed as a historical attempt and superseded by Sprint 9 for the final shipped interaction.
+- **Recommendation:** Completed. Keep as historical context for why Sprint 9 replaced the stacked progressive-disclosure model.
 
 ## QA Report
 
-- **Verdict:** Implementation complete, final desktop-width verification pending
+- **Verdict:** PASS
 - **Reviewer:** GitHub Copilot
 - **Issues Found:** 1 resolved implementation issue. A lint warning from an invalid `aria-expanded` attribute was removed during implementation.
-- **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS; browser QA on the available `680px` viewport confirmed progressive disclosure, visible core stack, planned-project honesty, and readable reduced-motion/mobile behavior. Full-width desktop verification is still pending.
-- **Deviations From Plan:** User review in real browser usage showed that the progressive-disclosure interaction still did not match the intended one-scene-at-a-time experience, so Sprint 8 remains preserved in `active/` and is now superseded by Sprint 9 rather than moved to `completed/`.
-- **Carry-Forward Updates For Next Sprint:** Sprint 9 should replace the visible stacked-card interaction with a true one-scene-at-a-time scroll stage and then Sprint 3 should close out the final shipped portfolio state after a true full-width desktop browser verification pass.
+- **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS; browser QA on the available `680px` viewport confirmed progressive disclosure, visible core stack, planned-project honesty, and readable reduced-motion/mobile behavior. User-confirmed real-browser view check on 2026-05-04 clears the earlier desktop-width verification gap.
+- **Deviations From Plan:** Sprint 8 is completed as a historical progressive-disclosure attempt, then superseded by Sprint 9 because user review showed the stacked-card model was not the final intended interaction.
+- **Carry-Forward Updates For Next Sprint:** Sprint 3 should close out the final shipped portfolio state against the current completed Sprint 9 and Sprint 10 baseline.

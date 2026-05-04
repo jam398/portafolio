@@ -3,10 +3,10 @@
 ## Metadata
 
 - **ID:** SPRINT-07
-- **Status:** Active
+- **Status:** Completed
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-04-30
-- **Last Updated:** 2026-04-30
+- **Last Updated:** 2026-05-04
 
 > **Artifact location rule:** Project workflow artifacts live under `docs/`.
 > - Specs: `docs/specs/spec-###-[slug].md`
@@ -118,7 +118,7 @@ In scope:
 
 - Sprint 4 through Sprint 6 provide the current motion and interaction baseline.
 - Sprint 3 final closeout should wait until this slice ships if it is intended for the final submission.
-- Final full-width desktop sticky verification remains pending because the integrated browser available in this session is constrained to about `680px` wide.
+- The user-confirmed real-browser view check on 2026-05-04 cleared the earlier full-width desktop sticky verification gap.
 
 ## Risks / Watchouts
 
@@ -143,8 +143,8 @@ This sprint is one bounded, verifiable unit because it changes only the flagship
 - [x] All in-scope tasks implemented
 - [x] Non-goals preserved
 - [x] Carry-forward constraints respected
-- [ ] Acceptance criteria met
-- [ ] Verification passed
+- [x] Acceptance criteria met
+- [x] Verification passed
 - [x] No known code blocking gaps remain
 
 ## Sprint Doc QA
@@ -159,7 +159,7 @@ This sprint is one bounded, verifiable unit because it changes only the flagship
 
 ### Governing Artifacts
 
-- **Sprint Path:** `docs/sprints/active/sprint-07-debt-pressure-lab-scrollytelling-sequence.md`
+- **Sprint Path:** `docs/sprints/completed/sprint-07-debt-pressure-lab-scrollytelling-sequence.md`
 - **Spec Path:** `docs/specs/spec-008-flagship-project-scrollytelling-sequence.md`
 
 ### QA Mode
@@ -183,24 +183,24 @@ None in the sprint document.
 ### Verification Results
 
 - **Automated:** `npm run lint` PASS; `npm run build` PASS.
-- **Manual:** Browser QA on the available `680px` integrated browser width confirmed 4 flagship scenes render, the active progress marker now changes from "Why it exists" to "What it proves" as the reader moves through the sequence, the planned Assignment 2 card remains visible as a normal secondary card, and reduced-motion emulation keeps the project section visible with no motion dependency. Direct full-width desktop sticky verification remains pending because the current browser environment does not expose a wider viewport.
+- **Manual:** Browser QA on the available `680px` integrated browser width confirmed 4 flagship scenes render, the active progress marker now changes from "Why it exists" to "What it proves" as the reader moves through the sequence, the planned Assignment 2 card remains visible as a normal secondary card, and reduced-motion emulation keeps the project section visible with no motion dependency. The user later confirmed a real-browser view check on 2026-05-04, clearing the earlier full-width desktop verification gap.
 
 ### Carry-Forward Updates
 
-- Sprint 3 should perform final truth verification on top of the post-Sprint-7 UI state after one true full-width desktop browser pass confirms the sticky proof panel behavior.
+- Sprint 7 is now a completed historical flagship-project interaction slice. Sprint 3 should perform final truth verification against the current shipped flagship model from the later completed sprints.
 
 ### Final QA Summary
 
 - **What was checked:** Sprint 7 scope, file plan, task order, changed files, automated validation, scene-progression behavior, mobile-sized readability, planned-project honesty, and reduced-motion visibility were reviewed against the governing spec.
 - **What was fixed:** The first implementation used intersection ratios for active-scene tracking, which kept the progress state pinned to the wrong scene when multiple scenes were visible. The component now selects the scene nearest to the reading anchor in the viewport.
-- **Residual risks:** Direct confirmation of the full-width desktop sticky panel remains outstanding because the integrated browser available in this session is width-limited.
-- **Recommendation:** Keep Sprint 7 active until one full-width desktop browser verification pass is recorded.
+- **Residual risks:** None for Sprint 7 closeout. The final shipped flagship interaction is governed by later completed Sprint 9 and Sprint 10 artifacts.
+- **Recommendation:** Completed. Keep as historical context for the flagship-project interaction evolution.
 
 ## QA Report
 
-- **Verdict:** Implementation complete, final desktop-width verification pending
+- **Verdict:** PASS
 - **Reviewer:** GitHub Copilot
 - **Issues Found:** 1 resolved implementation issue. The active progress indicator initially stayed on the wrong scene when multiple scenes were visible. The sequence now tracks the scene nearest to the viewport reading anchor instead.
-- **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS; browser QA on the available `680px` viewport confirmed 4-scene rendering, active progress updates, planned-project honesty, and reduced-motion visibility. Full-width desktop sticky verification is still pending.
-- **Deviations From Plan:** Sprint 7 remains in `active/` instead of moving to `completed/` because the available browser tool could not verify the true desktop sticky state.
-- **Carry-Forward Updates For Next Sprint:** Sprint 3 should close out the final shipped portfolio state after Sprint 7 receives one full-width desktop browser verification pass.
+- **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS; browser QA on the available `680px` viewport confirmed 4-scene rendering, active progress updates, planned-project honesty, and reduced-motion visibility. User-confirmed real-browser view check on 2026-05-04 clears the earlier desktop-width verification gap.
+- **Deviations From Plan:** None for closeout. Sprint 7 is completed as a historical scrollytelling baseline and is superseded by the later completed flagship interaction refinements.
+- **Carry-Forward Updates For Next Sprint:** Sprint 3 should close out the final shipped portfolio state against the current completed Sprint 9 and Sprint 10 baseline.

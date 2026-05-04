@@ -19,7 +19,7 @@ export function ProjectsSection() {
         <SectionHeader
           kicker="Featured Projects"
           title="Focused project evidence instead of random portfolio filler"
-          copy="I’m keeping this part focused on purpose: one real completed project that shows what I can build, and one clearly planned project that shows where I want to go next without pretending it already exists."
+          copy="I'm keeping this focused on purpose: one real completed project that shows what I can build, and one planned project that shows where I want to go next without pretending it already exists."
         />
 
         <div className="motion-stagger grid gap-5">

@@ -9,7 +9,7 @@ import { contactMethods, contactSection } from "@/data/portfolio";
 export function ContactSection() {
   return (
     <Reveal>
-      <section id="contact" className="panel px-6 py-8 sm:px-10 sm:py-12">
+      <section id="contact" className="contact-shell px-6 py-8 sm:px-10 sm:py-12">
         <div className="grid gap-8">
           <SectionHeader
             kicker={contactSection.kicker}
@@ -17,16 +17,16 @@ export function ContactSection() {
             copy={contactSection.copy}
           />
 
-          <div className="motion-stagger grid gap-4 lg:grid-cols-2">
+          <div className="motion-stagger grid gap-3 lg:grid-cols-3">
             {contactMethods.map((method, index) => (
               <article
                 key={method.label}
-                className="motion-item interactive-surface rounded-[24px] border border-white/10 bg-white/[0.03] p-5"
+                className="motion-item contact-method-surface"
                 style={{ "--stagger-index": index } as CSSProperties}
               >
-                <div className="grid gap-4">
+                <div className="grid gap-3">
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <h3 className="text-xl font-semibold text-[var(--color-text)]">{method.label}</h3>
+                    <h3 className="text-lg font-semibold text-[var(--color-text)]">{method.label}</h3>
                     <Badge tone={method.status === "ready" ? "accent" : "muted"}>
                       {method.status === "ready" ? "Ready" : "Pending"}
                     </Badge>

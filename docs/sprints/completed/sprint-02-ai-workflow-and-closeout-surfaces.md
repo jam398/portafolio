@@ -3,7 +3,7 @@
 ## Metadata
 
 - **ID:** SPRINT-02
-- **Status:** Complete
+- **Status:** Completed
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-04-30
 - **Last Updated:** 2026-04-30

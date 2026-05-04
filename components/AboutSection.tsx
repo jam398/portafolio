@@ -11,7 +11,7 @@ export function AboutSection() {
         <SectionHeader
           kicker={directionSection.kicker}
           title={directionSection.title}
-          copy="I want this page to feel believable first. I’m showing the direction I’m growing into without pretending I’m already in that role."
+          copy="I want this page to feel believable first. I'm showing the direction I'm growing into without pretending I'm already in that role."
         />
 
         <div className="panel px-5 py-6 sm:px-7 sm:py-8 lg:px-10">
@@ -39,7 +39,7 @@ export function AboutSection() {
                   Positioning Check
                 </p>
                 <ul className="grid gap-3 text-sm leading-7 text-[var(--color-text-muted)]">
-                  <li>I’m presenting myself as a software developer first and an AI application engineer in progress second.</li>
+                  <li>I&apos;m presenting myself as a software developer first and an AI application engineer in progress second.</li>
                   <li>I want the proof to come from real full-stack work, not inflated AI claims.</li>
                   <li>I want the page to read as honest momentum, not fake authority.</li>
                 </ul>

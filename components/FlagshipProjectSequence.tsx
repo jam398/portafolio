@@ -114,27 +114,45 @@ export function FlagshipProjectSequence({ project }: FlagshipProjectSequenceProp
 
   const panelContent = (
     <>
-      <div className="grid gap-5">
-        <h3 className="text-[1.9rem] font-semibold tracking-[-0.05em] text-[var(--color-text)] sm:text-[2.2rem]">
-          {project.title}
-        </h3>
-        <p className="text-sm leading-7 text-[var(--color-text-muted)]">{project.sequence.panelSummary}</p>
+      <div className="grid gap-4">
+        <div className="grid gap-3">
+          <h3 className="text-[1.7rem] font-semibold tracking-[-0.04em] text-[var(--color-text)] sm:text-[2rem]">
+            {project.title}
+          </h3>
+          <p className="text-sm leading-7 text-[var(--color-text-muted)]">{project.sequence.panelSummary}</p>
+        </div>
+
+        <div className="flagship-proof-brief">
+          {project.sequence.proofPoints.map((point) => (
+            <div key={point.label} className="flagship-proof-row">
+              <span>{point.label}</span>
+              <p>{point.value}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="grid gap-3">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
-            Tech stack
+            Core stack
           </p>
-          <div className="flex flex-wrap gap-2">
-            {coreTags.map((tag) => (
-              <Badge key={tag} tone="default">
-                {tag}
-              </Badge>
-            ))}
-          </div>
+          <p className="flagship-stack-line">{coreTags.join(" / ")}</p>
         </div>
-      </div>
 
-      <div className="grid gap-3 pt-2">
-        <Button label="GitHub Repo" href={project.repo} disabled={false} />
+        <div className="grid gap-3 pt-1">
+          <Button label="GitHub Repo" href={project.repo} disabled={false} />
+        </div>
+
+        <div className="flagship-verification-block grid gap-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
+            Verified signals
+          </p>
+          <ul className="flagship-verification-list">
+            {project.sequence.verification.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
       </div>
     </>
   );

@@ -23,8 +23,8 @@ export function Footer() {
             style={{ "--stagger-index": 1 } as CSSProperties}
           >
             <p className="font-semibold text-[var(--color-text)]">{profile.name}</p>
-            <p>I’m a software developer growing into AI-powered application work.</p>
-            <p>I’ll keep the final links and contact details marked as pending until I verify them.</p>
+            <p>I&apos;m a software developer growing into AI-powered application work.</p>
+            <p>GitHub, LinkedIn, and email are confirmed for portfolio review.</p>
             <p>{new Date().getFullYear()} Portfolio build.</p>
           </div>
         </div>

@@ -9,7 +9,7 @@ import { heroActions, heroTags, profile } from "@/data/portfolio";
 export function HeroSection() {
   return (
     <Reveal className="motion-section" delay={40}>
-      <section className="hero-shell panel mt-4 px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
+      <section className="hero-shell panel mt-4 px-5 py-7 sm:px-8 sm:py-9 lg:px-12 lg:py-12">
         <div className="hero-atmosphere" aria-hidden="true">
           <div className="hero-glow hero-glow-primary" />
           <div className="hero-glow hero-glow-secondary" />
@@ -17,13 +17,13 @@ export function HeroSection() {
           <div className="hero-ring" />
         </div>
 
-        <div className="hero-content motion-stagger grid gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.75fr)] lg:items-end">
-          <div className="grid-stack gap-6">
+        <div className="hero-content motion-stagger grid gap-8 lg:grid-cols-[minmax(0,1.28fr)_minmax(300px,0.72fr)] lg:items-end">
+          <div className="grid-stack gap-5">
             <div
               className="motion-item grid-stack gap-3"
               style={{ "--stagger-index": 0 } as CSSProperties}
             >
-              <p className="section-kicker">Assignment 1 Portfolio</p>
+              <p className="section-kicker">Software Developer</p>
               <h1 className="section-title">{profile.title}</h1>
               <p className="section-copy">{profile.subtitle}</p>
             </div>
@@ -110,10 +110,6 @@ export function HeroSection() {
                 <div className="flex items-center justify-between gap-3">
                   <span>Next focus</span>
                   <span className="font-medium text-[var(--color-text)]">RAG in progress</span>
-                </div>
-                <div className="flex items-center justify-between gap-3">
-                  <span>Presentation stance</span>
-                  <span className="font-medium text-[var(--color-text)]">Honest + technical</span>
                 </div>
               </div>
             </div>

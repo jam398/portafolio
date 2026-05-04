@@ -7,7 +7,7 @@ import { portfolioStrategySection, strategyPoints } from "@/data/portfolio";
 export function PortfolioStrategySection() {
   return (
     <Reveal>
-      <section id="portfolio-strategy" className="panel px-6 py-8 sm:px-10 sm:py-12">
+      <section id="portfolio-strategy" className="section-band px-6 py-8 sm:px-10 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
           <SectionHeader
             kicker={portfolioStrategySection.kicker}
@@ -15,11 +15,11 @@ export function PortfolioStrategySection() {
             copy={portfolioStrategySection.copy}
           />
 
-          <div className="motion-stagger grid gap-4">
+          <div className="motion-stagger quiet-list-grid">
             {strategyPoints.map((point, index) => (
               <article
                 key={point.title}
-                className="motion-item rounded-[24px] border border-white/10 bg-[rgba(8,16,29,0.82)] p-5"
+                className="motion-item quiet-list-item"
                 style={{ "--stagger-index": index } as CSSProperties}
               >
                 <div className="grid gap-3">

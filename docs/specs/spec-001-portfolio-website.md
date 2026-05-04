@@ -6,10 +6,10 @@
 - **Status:** Implementing
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-04-29
-- **Last Updated:** 2026-05-01
+- **Last Updated:** 2026-05-04
 - **Related Issue / Ticket:** None
-- **Child Specs:** SPEC-002, SPEC-003, SPEC-004, SPEC-005, SPEC-006, SPEC-007, SPEC-008, SPEC-009, SPEC-010
-- **Related Sprints:** Sprint 0 - Portfolio Foundation; Sprint 1 - Narrative and Project Evidence; Sprint 2 - AI Workflow and Closeout Surfaces; Sprint 3 - Truth Verification and Final Submission; Sprint 4 - Motion Foundation and Section Pacing; Sprint 5 - Hero Atmosphere and Top-of-Page Presence; Sprint 6 - Interactive Surface Polish; Sprint 7 - Debt Pressure Lab Scrollytelling Sequence; Sprint 8 - Featured Project Progressive Disclosure; Sprint 9 - Featured Project Scroll-Stage Sequence
+- **Child Specs:** SPEC-002, SPEC-003, SPEC-004, SPEC-005, SPEC-006, SPEC-007, SPEC-008, SPEC-009, SPEC-010, SPEC-011
+- **Related Sprints:** Sprint 0 - Portfolio Foundation; Sprint 1 - Narrative and Project Evidence; Sprint 2 - AI Workflow and Closeout Surfaces; Sprint 3 - Truth Verification and Final Submission; Sprint 4 - Motion Foundation and Section Pacing; Sprint 5 - Hero Atmosphere and Top-of-Page Presence; Sprint 6 - Interactive Surface Polish; Sprint 7 - Debt Pressure Lab Scrollytelling Sequence; Sprint 8 - Featured Project Progressive Disclosure; Sprint 9 - Featured Project Scroll-Stage Sequence; Sprint 10 - Portfolio UI Design Refinement
 
 ## Problem Statement
 
@@ -32,9 +32,9 @@ One oversized spec created avoidable friction because it mixed global portfolio 
 
 ## Current State
 
-The repository now contains a working Next.js portfolio application and completed Sprint 0 and Sprint 1 artifacts. The live page currently renders Navigation, Hero, Proof cards, My Direction, Featured Projects, and Skills.
+The repository now contains a working Next.js portfolio application and completed Sprint 0 and Sprint 1 artifacts. The live page currently renders the required Navigation, Hero, Proof cards, My Direction, Featured Projects, Skills, AI Workflow, Portfolio Strategy, Contact / Links, and Footer sections.
 
-The live page now renders the full required section flow through the footer. Final truth verification still remains in Sprint 3, the presentation-refinement work is split into bounded slices, Sprint 7 introduced the initial flagship-project sequence, Sprint 8 explored a progressive-disclosure refinement that still left the section visually card-stack based, and Sprint 9 is now actively implementing the true one-scene-at-a-time scroll stage for the flagship project.
+The live page now renders the full required section flow through the footer. Final truth verification still remains in Sprint 3, the presentation-refinement work is split into bounded slices, Sprint 7 introduced the initial flagship-project sequence, Sprint 8 explored a progressive-disclosure refinement that still left the section visually card-stack based, Sprint 9 implements the true one-scene-at-a-time scroll stage for the flagship project, and Sprint 10 completed the UI design refinement pass based on external portfolio research and live page review.
 
 ## Proposed Approach
 
@@ -76,6 +76,10 @@ Use this spec as the umbrella contract for the entire portfolio program and keep
    - Governs the successor interaction model where one left-side scene is visible at a time while the right proof panel remains sticky.
    - Covers Sprint 9.
 
+10. **SPEC-011: Portfolio UI Design Refinement**
+   - Governs the follow-on UI polish pass that reduces repeated badge/card weight, simplifies the first viewport, and makes the flagship project read as a more polished case study.
+   - Covers Sprint 10.
+
 ## Architecture / Flow Notes
 
 Global portfolio architecture remains unchanged:
@@ -106,7 +110,7 @@ The required page order remains:
 - The owner must be presented as a software developer with a real full-stack foundation who is growing toward AI application engineering.
 - Debt Pressure Lab must remain the primary real completed project.
 - The Assignment 2 RAG project must remain clearly planned until real implementation artifacts exist.
-- GitHub, LinkedIn, Resume, and email must never be invented.
+- Personal links and contact values must never be invented. GitHub is confirmed as `https://github.com/jam398`; LinkedIn is confirmed as `https://www.linkedin.com/in/jose-martinez-de-la-cruz-32baa022b`; email is confirmed as `jam398@njit.edu`; Resume is intentionally not required unless the user restores it.
 - The design must remain structured, professional, readable, and non-gimmicky.
 - Motion must support comprehension and pacing rather than turning the site into a demo reel.
 - No child spec may override the truth rules established here.
@@ -135,17 +139,26 @@ The required page order remains:
 6. Sprint 7 maps to SPEC-008.
 7. Sprint 8 maps to SPEC-009.
 8. Sprint 9 maps to SPEC-010.
-9. Sprint 3 maps to SPEC-004.
+9. Sprint 10 maps to SPEC-011.
+10. Sprint 3 maps to SPEC-004.
 
 ## Rollout / Sequencing Notes
 
-Use the umbrella spec for global rules and the child specs for slice-specific implementation details. If a future change only affects one slice, update that child spec instead of expanding the umbrella spec again. The presentation-refinement slices, the flagship-project sequence, and any approved follow-on interaction refinements should land before final submission closeout so final QA reflects the actual shipped presentation.
+Use the umbrella spec for global rules and the child specs for slice-specific implementation details. If a future change only affects one slice, update that child spec instead of expanding the umbrella spec again. The presentation-refinement slices, the flagship-project sequence, the approved UI design refinement pass, and any approved follow-on interaction refinements should land before final submission closeout so final QA reflects the actual shipped presentation.
 
 ### QA Addendum - 2026-05-01 (Scroll-Stage Successor)
 
 - **Reviewer:** GitHub Copilot
 - **Scope:** Added `SPEC-010` and Sprint 9 to represent the one-scene-at-a-time scroll-stage successor to the interaction model attempted in Sprint 8.
 - **Checks Performed:** Read the updated umbrella spec; checked that the new child spec preserves the required page order and truth rules; checked that prior artifacts remain preserved instead of rewritten.
+- **Findings:** None.
+- **Verdict:** PASS
+
+### QA Addendum - 2026-05-04 (UI Design Refinement)
+
+- **Reviewer:** GitHub Copilot
+- **Scope:** Added `SPEC-011` and planned Sprint 10 to govern the UI design refinement pass based on external portfolio research and live page review.
+- **Checks Performed:** Read the updated umbrella spec; checked that the new child spec preserves the required page order, truth rules, and existing topic boundaries; checked that Sprint 10 remains presentation-focused rather than adding new portfolio claims.
 - **Findings:** None.
 - **Verdict:** PASS
 
@@ -224,7 +237,7 @@ This QA pass reviewed:
 
 ### Open Questions
 
-- Final GitHub, LinkedIn, Resume, and email values remain unresolved.
+- Final GitHub, LinkedIn, and Email values are confirmed. Resume is intentionally not required unless restored by the user.
 - Debt Pressure Lab live-demo availability and final claim set still require verification before final submission closeout.
 
 These do not block Sprint 2 because the child specs explicitly allow honest placeholders and defer final truth verification to Sprint 3.

@@ -3,7 +3,7 @@
 ## Metadata
 
 - **ID:** SPRINT-09
-- **Status:** Active
+- **Status:** Completed
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-05-01
 - **Last Updated:** 2026-05-01
@@ -54,8 +54,8 @@ In scope:
 | Asset | Path | Role | Notes |
 |-------|------|------|-------|
 | Governing spec | `docs/specs/spec-010-featured-project-scroll-stage-sequence.md` | Governing requirements for the new interaction model | Verified existing file |
-| Active Sprint 7 | `docs/sprints/active/sprint-07-debt-pressure-lab-scrollytelling-sequence.md` | Baseline flagship-project sequence slice | Verified existing file |
-| Active Sprint 8 | `docs/sprints/active/sprint-08-featured-project-progressive-disclosure.md` | Current but unsatisfactory stacked-card refinement | Verified existing file |
+| Completed Sprint 7 | `docs/sprints/completed/sprint-07-debt-pressure-lab-scrollytelling-sequence.md` | Historical baseline flagship-project sequence slice | Verified existing file |
+| Completed Sprint 8 | `docs/sprints/completed/sprint-08-featured-project-progressive-disclosure.md` | Historical stacked-card refinement superseded by this sprint | Verified existing file |
 | Flagship sequence component | `components/FlagshipProjectSequence.tsx` | Current featured-project surface to be reworked | Verified existing file |
 | Project section shell | `components/ProjectsSection.tsx` | Owns the Featured Projects entry point | Verified existing file |
 | Content model | `data/portfolio.ts` | Source of truth for scene content and proof data | Verified existing file |
@@ -67,7 +67,7 @@ In scope:
 - `components/ProjectsSection.tsx`
 - `data/portfolio.ts`
 - `app/globals.css`
-- `docs/sprints/active/sprint-08-featured-project-progressive-disclosure.md`
+- `docs/sprints/completed/sprint-08-featured-project-progressive-disclosure.md`
 
 ## Ordered Tasks
 
@@ -98,7 +98,7 @@ In scope:
 ### Task 4. Record Sprint 8 outcome honestly
 
 - **Objective:** Preserve the workflow record by marking Sprint 8 as an unsatisfactory interaction model for the intended UX rather than silently overwriting it.
-- **Files:** `docs/sprints/active/sprint-08-featured-project-progressive-disclosure.md`
+- **Files:** `docs/sprints/completed/sprint-08-featured-project-progressive-disclosure.md`
 - **Changes:** Add a carry-forward note or QA note that Sprint 9 replaces the stacked-card interaction model.
 - **Unchanged:** Do not erase Sprint 8 implementation history.
 - **Verify After:** The durable artifacts reflect what happened and why Sprint 9 exists.
@@ -158,8 +158,8 @@ This sprint is one bounded, verifiable unit because it changes only the flagship
 - [x] All in-scope tasks implemented
 - [x] Non-goals preserved
 - [x] Carry-forward constraints respected
-- [ ] Acceptance criteria met
-- [ ] Verification passed
+- [x] Acceptance criteria met
+- [x] Verification passed
 - [x] No known code blocking gaps remain
 
 ## Sprint Doc QA
@@ -174,7 +174,7 @@ This sprint is one bounded, verifiable unit because it changes only the flagship
 
 ### Governing Artifacts
 
-- **Sprint Path:** `docs/sprints/active/sprint-09-featured-project-scroll-stage-sequence.md`
+- **Sprint Path:** `docs/sprints/completed/sprint-09-featured-project-scroll-stage-sequence.md`
 - **Spec Path:** `docs/specs/spec-010-featured-project-scroll-stage-sequence.md`
 
 ### QA Mode
@@ -213,9 +213,9 @@ None.
 
 ## QA Report
 
-- **Verdict:** Implementation complete, final desktop-width verification pending
+- **Verdict:** PASS
 - **Reviewer:** GitHub Copilot
 - **Issues Found:** 3 resolved implementation issues. First, the Featured Projects reveal wrapper used the default `0.18` intersection threshold, but the Sprint 9 scroll-stage made the section too tall for that threshold to be reached in a normal viewport, so the whole section could remain hidden at `opacity: 0`. `components/ProjectsSection.tsx` now uses a lower reveal threshold for this tall section. Second, the desktop sequence had an extra release step and inherited `overflow: hidden` from the outer panel, which created a large blank scroll/card area and could interfere with sticky stage behavior. `components/FlagshipProjectSequence.tsx` now uses only the four real scene steps and continuous stage progress, while `app/globals.css` lets the flagship panel overflow visibly for sticky positioning and removes the oversized proof-panel minimum height. Third, the sticky desktop frame vertically centered the scene/proof cards inside a full viewport, leaving a large empty area below the intro divider. `app/globals.css` now top-aligns the sticky frame and reduces the desktop sequence top spacing.
 - **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS. Playwright was installed in the portfolio repo and used against a fresh production server at desktop width. The desktop pass confirmed the project section reveals, the scene sequence advances through "Why it exists", "What I built", "How it works", and "What it proves", the proof / tech card height is compact rather than mostly empty, and the planned Assignment 2 card stays below the viewport until the flagship sequence is almost complete. A follow-up Playwright geometry check against the production server confirmed the flagship stage starts 43px after the intro divider with `align-items: start`, `27px` frame top padding, and `16px` desktop sequence margin. The source Debt Pressure Lab repository was checked for actual stack and feature evidence, including `npm test` reporting 111 passing tests; the portfolio content now reflects the verified Next.js App Router, React 19, Tailwind CSS 4, SQLite/libSQL, Drizzle ORM, Better Auth, OpenAI Responses API, SSE streaming, MCP SDK, Zod, and `node:test` usage. A final portfolio browser pass confirmed the expanded proof-panel stack has no badge overflow on desktop or mobile. A later nav-offset browser pass sampled the active desktop scroll range and confirmed the sticky frame/card tops remain below the sticky header before the final release. A 1531x634 browser pass confirmed all four desktop scene cards have matching `scrollHeight` and `clientHeight`, so the active scene content is not clipped at the shorter screenshot-like viewport height. The mobile pass confirmed the fallback renders 4 scenes and keeps the planned project below the sequence. Screenshot backgrounds and their copied/reference PNG files were removed before final presentation because the live site itself will be presented. A final no-images browser pass at 1531x634 confirmed the project section renders zero scene-background layers, zero project images, preserves nav clearance, and does not clip the active scene.
-- **Deviations From Plan:** No functional deviation remains for the desktop-width verification blocker. Sprint 9 remains in `active/` only until the final artifact checklist is updated or a human motion-feel pass decides the pacing needs further adjustment.
-- **Carry-Forward Updates For Next Sprint:** Sprint 3 should close out the final shipped portfolio state after Sprint 9 is formally completed and after final truth-sensitive link and project-claim verification.
+- **Deviations From Plan:** No functional deviation remains for the desktop-width verification blocker. Sprint 10 later refined the visual presentation on top of this completed scroll-stage baseline.
+- **Carry-Forward Updates For Next Sprint:** Sprint 3 should close out the final shipped portfolio state after Sprint 10 and after final truth-sensitive project-claim verification.

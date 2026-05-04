@@ -41,6 +41,11 @@ export type FlagshipProjectSequence = {
   intro: string;
   panelSummary: string;
   coreTags: string[];
+  proofPoints: {
+    label: string;
+    value: string;
+  }[];
+  verification: string[];
   scenes: FlagshipProjectScene[];
 };
 
@@ -69,11 +74,11 @@ export type ContactMethod = {
 
 export const profile = {
   name: "Jose Addiel Martinez De La Cruz",
-  title: "Software Developer Building Practical AI-Powered Web Systems",
+  title: "Practical AI-Powered Web Systems",
   subtitle:
-    "I build full-stack applications with backend logic, databases, testing, and AI tool use. My current focus is growing toward RAG-based applications, AI agents, and reliable AI workflows.",
+    "I'm a software developer building full-stack applications with backend logic, databases, testing, and practical AI tool use. My current focus is growing toward RAG-based applications, AI agents, and reliable AI workflows.",
   direction:
-    "I’m building from a full-stack foundation first, and I’m growing toward AI application engineering next. I want this portfolio to reflect real project work, honest growth, and practical system thinking.",
+    "I'm building from a full-stack foundation first and growing toward AI application engineering through real project work, testing, documentation, and practical system thinking.",
   photo: {
     src: "/20260331_184256.jpg",
     alt: "Jose Addiel Martinez De La Cruz",
@@ -82,42 +87,34 @@ export const profile = {
 
 export const heroTags = [
   "Full-Stack Development",
-  "Backend Systems",
-  "AI Tool Use",
-  "Testing",
-  "RAG in Progress",
+  "Practical AI Workflows",
+  "Tested Backend Systems",
 ] as const;
 
 export const profileLinks: ProfileLink[] = [
   {
     label: "GitHub",
-    href: "",
-    status: "placeholder",
-    placeholderText: "Add GitHub profile URL",
+    href: "https://github.com/jam398",
+    status: "ready",
+    placeholderText: "",
   },
   {
     label: "LinkedIn",
-    href: "",
-    status: "placeholder",
-    placeholderText: "Add LinkedIn URL",
-  },
-  {
-    label: "Resume",
-    href: "",
-    status: "placeholder",
-    placeholderText: "Add resume link or file",
+    href: "https://www.linkedin.com/in/jose-martinez-de-la-cruz-32baa022b",
+    status: "ready",
+    placeholderText: "",
   },
 ];
 
 export const heroActions = [
   {
     label: "View Projects",
-    kind: "ghost" as const,
+    kind: "primary" as const,
     href: "#projects",
   },
   ...profileLinks.map((link) => ({
     label: link.label,
-    kind: "primary" as const,
+    kind: "ghost" as const,
     link,
   })),
 ];
@@ -149,8 +146,8 @@ export const directionSection = {
   kicker: "My Direction",
   title: "Software development with a clear path into AI-powered systems",
   paragraphs: [
-    "I’m an Information Technology student focused on software development, backend systems, and AI-powered applications. I like building practical tools that combine APIs, databases, user interfaces, testing, and automation. My long-term goal is to grow into AI application engineering work where I can build useful systems that connect AI models to real workflows.",
-    "I’m not presenting myself as a senior AI engineer. I’m showing the full-stack foundation I’ve built so far and the direction I’m moving in through project work, testing, documentation, and intentional use of AI tools.",
+    "I'm an Information Technology student focused on software development, backend systems, and AI-powered applications. I like building practical tools that combine APIs, databases, user interfaces, testing, and automation. My long-term goal is to grow into AI application engineering work where I can build useful systems that connect AI models to real workflows.",
+    "I'm not presenting myself as a senior AI engineer. I'm showing the full-stack foundation I've built so far and the direction I'm moving in through project work, testing, documentation, and intentional use of AI tools.",
   ],
 };
 
@@ -197,17 +194,32 @@ export const featuredProjects: FeaturedProject[] = [
         "A full-stack financial education app that turns official debt-rate data into simulator results, AI-assisted explanations, saved debt plans, and traceable calculations.",
       coreTags: [
         "Next.js App Router",
-        "React 19",
         "TypeScript",
         "Tailwind CSS 4",
         "SQLite/libSQL",
         "Drizzle ORM",
         "Better Auth",
         "OpenAI Responses API",
-        "SSE streaming",
         "MCP SDK",
-        "Zod",
         "node:test",
+      ],
+      proofPoints: [
+        {
+          label: "Problem",
+          value: "Make high-interest debt pressure visible with official benchmark rates.",
+        },
+        {
+          label: "Build",
+          value: "Simulator, AI chat, debt workspace, auth, persistence, and source traces.",
+        },
+        {
+          label: "Role",
+          value: "Full-stack implementation, AI tool flow, finance logic, testing, and docs.",
+        },
+      ],
+      verification: [
+        "111 passing tests reported in the source project.",
+        "Calculation traces and documented assumptions instead of hidden math.",
       ],
       scenes: [
         {
@@ -272,7 +284,7 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "My next project is a planned RAG-powered AI application based on real AI-forward engineering job descriptions. I want it to analyze resumes and job descriptions to identify missing skills, repeated technologies, and project ideas that can help someone move toward a target role.",
     proof:
-      "I planned this project because the AI-forward job descriptions I researched kept pointing to RAG, embeddings, vector search, AI evaluation, model-backed APIs, and production-focused AI workflows. That’s the next skill area I want to build in.",
+      "I planned this project because the AI-forward job descriptions I researched kept pointing to RAG, embeddings, vector search, AI evaluation, model-backed APIs, and production-focused AI workflows. That's the next skill area I want to build in.",
     repo: "",
     tags: [
       "RAG",
@@ -295,55 +307,33 @@ export const skillsSection = {
   kicker: "Skills, Tools, and Growing Focus",
   title: "Grouped capabilities instead of a generic skill cloud",
   copy:
-    "I grouped these skills to show how my work fits together: software development first, AI application development next, and the interest areas I’m building toward from here.",
+    "I grouped these skills to show how my work fits together: software development first, AI application development next, and the interest areas I'm building toward from here.",
 };
 
 export const skillGroups: SkillGroup[] = [
   {
     title: "Software Development",
-    items: ["Python", "TypeScript", "JavaScript", "SQL", "HTML", "CSS"],
+    items: ["Python", "TypeScript", "JavaScript", "SQL"],
   },
   {
     title: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "Responsive design", "Component-based UI"],
+    items: ["React", "Next.js", "Tailwind CSS", "Responsive design"],
   },
   {
     title: "Backend",
-    items: ["FastAPI", "Node.js", "API routes", "Authentication", "Server-side logic", "REST APIs"],
+    items: ["FastAPI", "Node.js", "API routes", "Authentication", "REST APIs"],
   },
   {
-    title: "Databases",
+    title: "Data and Persistence",
     items: ["SQLite/libSQL", "Drizzle ORM", "SQL", "MongoDB"],
   },
   {
-    title: "AI Application Development",
-    items: [
-      "OpenAI API",
-      "ChatGPT",
-      "Claude",
-      "Codex",
-      "AI assistants",
-      "AI tool use",
-      "MCP-style tools",
-      "Prompt design",
-      "Agentic workflows",
-    ],
+    title: "AI Application Work",
+    items: ["OpenAI API", "AI tool use", "MCP-style tools", "Prompt design", "RAG in progress"],
   },
   {
-    title: "Growing AI Focus",
-    items: ["RAG", "Embeddings", "Vector databases", "AI evaluation", "Reliable AI workflows"],
-  },
-  {
-    title: "Testing and Quality",
-    items: ["Automated testing", "API testing", "Integration testing", "Zod validation", "Pytest", "Test-driven thinking"],
-  },
-  {
-    title: "Documentation",
-    items: ["README files", "Architecture notes", "Setup instructions", "Methodology explanations", "Project writeups"],
-  },
-  {
-    title: "Interests",
-    items: ["AI-powered web apps", "Backend systems", "Practical automation", "Developer tools", "Financial education tools", "RAG applications", "AI agents"],
+    title: "Quality and Documentation",
+    items: ["Automated testing", "API testing", "Zod validation", "README files", "Architecture notes"],
   },
 ];
 
@@ -351,29 +341,29 @@ export const aiWorkflowSection = {
   kicker: "How I Use AI Intentionally",
   title: "AI is part of the workflow, not a shortcut around understanding",
   copy:
-    "I use AI tools to move faster on research, drafting, debugging, and iteration, but I still treat understanding, verification, and final decisions as my responsibility. I’m not trying to sound more advanced than I am. I’m showing the practical workflow I use to build better software.",
+    "I use AI to speed up research, drafting, debugging, and documentation, but I keep verification and final decisions tied to the actual code.",
 };
 
 export const workflowCards: WorkflowCard[] = [
   {
-    title: "Research and framing",
+    title: "Spec and sprint planning",
     description:
-      "I use AI to compare approaches, clarify tradeoffs, and turn vague ideas into clearer implementation steps before I start changing code.",
+      "Turn vague goals into scoped specs, sprint tasks, acceptance criteria, risks, and verification steps before changing code.",
   },
   {
-    title: "Coding and debugging",
+    title: "Implementation support",
     description:
-      "I use AI assistance to generate drafts, inspect alternatives, and narrow likely causes of bugs, then I verify the behavior against the actual code and the running application.",
+      "Draft small changes, inspect alternatives, debug errors, and compare approaches while keeping final code decisions tied to the live repository.",
   },
   {
     title: "Testing and QA",
     description:
-      "I use AI to help structure checks, think through edge cases, and reduce missed steps, but I do not treat generated output as true until the repository checks and manual verification agree.",
+      "Verify AI-assisted work with lint, production builds, browser checks, responsive review, reduced-motion checks, and manual behavior testing.",
   },
   {
-    title: "Documentation and process",
+    title: "Documentation and traceability",
     description:
-      "I use AI to help keep specs, sprint plans, and QA records current, which makes the work easier to follow and keeps implementation decisions tied to something durable instead of memory.",
+      "Keep specs, sprint records, QA notes, and carry-forward decisions updated so project history stays reviewable outside of chat.",
   },
 ];
 
@@ -381,7 +371,7 @@ export const portfolioStrategySection = {
   kicker: "Portfolio Strategy",
   title: "The portfolio is intentionally narrow so the proof stays credible",
   copy:
-    "I’d rather keep this page focused than fill it with unrelated work. I’m showing one real completed system, one clearly planned next step, and the capabilities that match that direction. I want the page to show real signal, not just volume.",
+    "I'd rather keep this page focused than fill it with unrelated work. I'm showing one real completed system, one clearly planned next step, and the capabilities that match that direction. I want the page to show real signal, not just volume.",
 };
 
 export const strategyPoints: StrategyPoint[] = [
@@ -393,7 +383,7 @@ export const strategyPoints: StrategyPoint[] = [
   {
     title: "Planned work stays planned",
     description:
-      "I included the Assignment 2 RAG project to show where I want to go technically, but I’m keeping it clearly labeled as planned so I don’t overstate what already exists.",
+      "I included the Assignment 2 RAG project to show where I want to go technically, but I'm keeping it clearly labeled as planned so I don't overstate what already exists.",
   },
   {
     title: "Skills support the project story",
@@ -404,9 +394,9 @@ export const strategyPoints: StrategyPoint[] = [
 
 export const contactSection = {
   kicker: "Contact / Links",
-  title: "Visible access points without fake final details",
+  title: "Confirmed places to review the work",
   copy:
-    "I want the important destinations visible here, but I’m leaving unresolved values marked as pending until I have the real final links. That way the page stays honest while still showing what belongs here.",
+    "GitHub, LinkedIn, and email are ready for portfolio review and follow-up.",
 };
 
 export const contactMethods: ContactMethod[] = [
@@ -415,16 +405,14 @@ export const contactMethods: ContactMethod[] = [
     description:
       link.label === "GitHub"
         ? "Main public code profile for portfolio and project review."
-        : link.label === "LinkedIn"
-          ? "Professional profile destination for recruiters and instructors."
-          : "Formal background summary once the final resume file or link is confirmed.",
+        : "Professional profile destination for recruiters and instructors.",
   })),
   {
     label: "Email",
-    href: "",
-    status: "placeholder",
-    placeholderText: "Add professional email address",
-    description: "Direct contact channel for final portfolio closeout once confirmed.",
+    href: "mailto:jam398@njit.edu",
+    status: "ready",
+    placeholderText: "",
+    description: "Direct contact channel for portfolio review and follow-up.",
   },
 ];
 
