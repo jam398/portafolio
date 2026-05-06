@@ -7,32 +7,36 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { featuredProjects } from "@/data/portfolio";
 
 export function ProjectsSection() {
-  const [featuredProject, plannedProject] = featuredProjects;
-  const featuredProjectWithSequence =
-    featuredProject.sequence === undefined
-      ? undefined
-      : { ...featuredProject, sequence: featuredProject.sequence };
-
   return (
     <Reveal threshold={0.02}>
       <section id="projects" className="grid gap-6 scroll-mt-24">
         <SectionHeader
           kicker="Featured Projects"
           title="Focused project evidence instead of random portfolio filler"
-          copy="I'm keeping this focused on purpose: one real completed project that shows what I can build, and one planned project that shows where I want to go next without pretending it already exists."
+          copy="I'm keeping this focused on purpose: verified projects that show full-stack implementation, AI workflow design, testing, and documentation without inventing links or demos that are not ready."
         />
 
         <div className="motion-stagger grid gap-5">
-          <div className="motion-item" style={{ "--stagger-index": 0 } as CSSProperties}>
-            {featuredProjectWithSequence ? (
-              <FlagshipProjectSequence project={featuredProjectWithSequence} />
-            ) : (
-              <ProjectCard project={featuredProject} featured />
-            )}
-          </div>
-          <div className="motion-item" style={{ "--stagger-index": 1 } as CSSProperties}>
-            <ProjectCard project={plannedProject} />
-          </div>
+          {featuredProjects.map((project, index) => {
+            const projectWithSequence =
+              project.sequence === undefined
+                ? undefined
+                : { ...project, sequence: project.sequence };
+
+            return (
+              <div
+                key={project.title}
+                className="motion-item"
+                style={{ "--stagger-index": index } as CSSProperties}
+              >
+                {projectWithSequence ? (
+                  <FlagshipProjectSequence project={projectWithSequence} />
+                ) : (
+                  <ProjectCard project={project} featured={index === 0} />
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
     </Reveal>

@@ -138,9 +138,11 @@ export function FlagshipProjectSequence({ project }: FlagshipProjectSequenceProp
           <p className="flagship-stack-line">{coreTags.join(" / ")}</p>
         </div>
 
-        <div className="grid gap-3 pt-1">
-          <Button label="GitHub Repo" href={project.repo} disabled={false} />
-        </div>
+        {project.repo ? (
+          <div className="grid gap-3 pt-1">
+            <Button label="GitHub Repo" href={project.repo} />
+          </div>
+        ) : null}
 
         <div className="flagship-verification-block grid gap-2">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
@@ -210,11 +212,11 @@ export function FlagshipProjectSequence({ project }: FlagshipProjectSequenceProp
           <Badge tone="default">{project.label}</Badge>
         </div>
         <div className="grid gap-3">
-          <p className="section-kicker">Flagship Case Study</p>
+          <p className="section-kicker">{project.sequence.kicker ?? "Case Study"}</p>
           <h3 className="text-[1.9rem] font-semibold tracking-[-0.05em] text-[var(--color-text)] sm:text-[2.4rem]">
-            Debt Pressure Lab is the page&apos;s main proof project
+            {project.sequence.headline ?? `${project.title} case study`}
           </h3>
-          <p className="max-w-[38rem] text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">
+          <p className="flagship-sequence-intro text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">
             {project.sequence.intro}
           </p>
         </div>

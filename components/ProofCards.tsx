@@ -14,7 +14,7 @@ export function ProofCards() {
           copy="The first read should establish software-development credibility before the rest of the portfolio expands into projects, skills, and AI workflow."
         />
 
-        <div className="motion-stagger grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="motion-stagger motion-together grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {proofCards.map((card, index) => (
             <article
               key={card.title}

@@ -6,15 +6,13 @@ type SkillGroupCardProps = {
 
 export function SkillGroupCard({ group }: SkillGroupCardProps) {
   return (
-    <article className="skill-group-surface interactive-surface px-5 py-5 sm:px-6 sm:py-6">
-      <div className="grid gap-4">
-        <div className="grid gap-2">
+    <article className="skill-group-surface interactive-surface">
+      <div className="grid gap-3">
+        <div className="grid gap-1">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
             Capability
           </p>
-          <h3 className="text-xl font-semibold tracking-[-0.04em] text-[var(--color-text)]">
-            {group.title}
-          </h3>
+          <h3 className="skill-group-title">{group.title}</h3>
         </div>
 
         <ul className="skill-text-list">

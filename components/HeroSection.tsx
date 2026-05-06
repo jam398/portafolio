@@ -108,8 +108,8 @@ export function HeroSection() {
                   <span className="font-medium text-[var(--color-text)]">Debt Pressure Lab</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
-                  <span>Next focus</span>
-                  <span className="font-medium text-[var(--color-text)]">RAG in progress</span>
+                  <span>Recent build</span>
+                  <span className="font-medium text-[var(--color-text)]">JM AI Consulting</span>
                 </div>
               </div>
             </div>

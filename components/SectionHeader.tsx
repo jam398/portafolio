@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 type SectionHeaderProps = {
   kicker: string;
   title: string;
@@ -6,10 +8,16 @@ type SectionHeaderProps = {
 
 export function SectionHeader({ kicker, title, copy }: SectionHeaderProps) {
   return (
-    <div className="grid-stack">
-      <p className="section-kicker">{kicker}</p>
-      <h2 className="section-title text-[2rem] sm:text-[2.4rem]">{title}</h2>
-      <p className="section-copy max-w-[34rem] text-sm sm:text-base">{copy}</p>
+    <div className="content-section-header motion-stagger">
+      <p className="section-kicker motion-item" style={{ "--stagger-index": 0 } as CSSProperties}>
+        {kicker}
+      </p>
+      <h2 className="content-section-title motion-item" style={{ "--stagger-index": 1 } as CSSProperties}>
+        {title}
+      </h2>
+      <p className="content-section-copy motion-item" style={{ "--stagger-index": 2 } as CSSProperties}>
+        {copy}
+      </p>
     </div>
   );
 }

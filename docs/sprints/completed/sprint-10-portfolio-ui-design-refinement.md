@@ -6,7 +6,7 @@
 - **Status:** Completed
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-05-04
-- **Last Updated:** 2026-05-04
+- **Last Updated:** 2026-05-06
 
 ## Goal
 
@@ -206,3 +206,59 @@ None.
 - **Final Verification Results:** `npm run lint` PASS; `git diff --check` PASS. `npm run build` PASS when run outside the sandbox; the sandboxed build failed with Windows `spawn EPERM` during the Next.js TypeScript phase. Playwright browser QA also required elevated execution because Chromium launch failed in the sandbox with `spawn EPERM`. Browser QA against a production server confirmed desktop first viewport at 1440x920 has ready GitHub and LinkedIn links, no Resume link, no LinkedIn pending text, 67 badge-like elements instead of the prior 158, 9 `.panel` surfaces instead of the prior 21, and no horizontal overflow. Mobile QA at 390x844 confirmed the same link truth state and no horizontal overflow. Short-height desktop QA at 1531x634 confirmed the flagship stage remains below the nav, the active scene is not clipped (`clientHeight` equals `scrollHeight`), the proof panel fits within the viewport, core stack is visible, and the GitHub Repo button is visible.
 - **Deviations From Plan:** Verified links changed during the sprint because the user supplied the public LinkedIn URL after the plan was drafted. The sprint preserved the truth rules by using the confirmed public profile URL and keeping email unresolved.
 - **Carry-Forward Updates For Next Sprint:** Sprint 3 should now treat README and final Debt Pressure Lab claim/demo verification as the remaining final closeout blockers. GitHub, LinkedIn, and Email are confirmed, and Resume is intentionally not required.
+
+### Follow-Up QA - 2026-05-06 - Skills Layout
+
+- **Reviewer:** Codex
+- **Scope:** Focused lower-section rhythm correction for the Skills section after user review.
+- **Changes Verified:** `components/SkillsSection.tsx` now uses a dedicated compact section header instead of the global hero-scale section title; `components/SkillGroupCard.tsx` and `app/globals.css` now render skill groups as denser cards with compact grouped skill chips.
+- **Verification Results:** `npm run lint` PASS; `npm run build` PASS; Playwright desktop QA at `1531x789` confirmed six skill cards, no card clipping, no chip text overflow, and no horizontal overflow. Playwright mobile QA at `390x844` confirmed readable stacked skill cards with no clipping or horizontal overflow.
+- **Verdict:** PASS
+
+### Follow-Up QA - 2026-05-06 - Reveal Motion And Project Intro
+
+- **Reviewer:** Codex
+- **Scope:** Focused UI/UX correction for shared section headers, project intro text measure, and lower-section reveal motion.
+- **Changes Verified:** `components/SectionHeader.tsx` now uses dedicated `content-section-title` and `content-section-copy` classes so Proof, My Direction, Featured Projects, and other shared headers avoid hero-scale title/copy constraints. `components/FlagshipProjectSequence.tsx` now uses a dedicated `flagship-sequence-intro` class so project intro copy can use the available desktop width. `components/Reveal.tsx` now computes reveal state from scroll geometry and applies the opacity/transform/filter state inline so sections enter from below and reset when they leave the viewport.
+- **Verification Results:** `npm run lint` PASS; `npm run build` PASS; Playwright desktop QA at `1531x789` confirmed shared header copy widths around `1152px`, Skills copy around `1100px`, the midterm project intro expanded from the prior narrow cap to about `1122px`, no horizontal overflow, and reveal states switch from hidden to visible during scroll. Mobile QA at `390x844` confirmed no horizontal overflow.
+- **Verdict:** PASS
+
+### Follow-Up QA - 2026-05-06 - Section-Level Flow With Grouped Stagger
+
+- **Reviewer:** Codex
+- **Scope:** Focused correction for regular page section pacing after user clarified that normal sections should follow the hero-like section reveal and timed group stagger, not project/AI-workflow-style scroll stepping.
+- **Changes Verified:** Removed the attempted item-by-item `sequence` reveal mode. `components/Reveal.tsx` keeps standard section-level reveal behavior. Normal `.motion-stagger` groups again use the original timed stagger from Sprint 4 after their section reveals. Projects and AI Workflow remain separate from this shared reveal behavior.
+- **Verification Results:** `npm.cmd run lint` PASS; `npm.cmd run build` PASS; Playwright QA on `http://localhost:3000` confirmed Proof is hidden before entry, starts a timed grouped stagger on section entry, settles with all cards visible, resets after leaving the viewport, and settles visible again when scrolling back. About showed the same section-triggered stagger pattern. Reduced-motion QA confirmed non-entered sections remain hidden while movement, blur, and transitions are disabled. No `data-sequence` mode is present, and mobile has no horizontal overflow.
+- **Verdict:** PASS
+
+### Follow-Up QA - 2026-05-06 - Reveal Pacing
+
+- **Reviewer:** Codex
+- **Scope:** Focused correction for smooth section reveal pacing so regular sections do not feel like all content appears at once when the section begins entering the viewport.
+- **Changes Verified:** `components/Reveal.tsx` now uses a later default trigger and avoids repeated state writes while scrolling. `components/SectionHeader.tsx` and `components/SkillsSection.tsx` now make section headers part of the shared timed stagger. `app/globals.css` now delays body/card grids after headers and applies stagger delays only during reveal, so hidden sections reset immediately.
+- **Verification Results:** `npm.cmd run lint` PASS; `npm.cmd run build` PASS; Playwright production QA on `http://localhost:3106` confirmed lower sections are hidden on initial load, Proof does not reveal before its trigger, Proof header items animate before the body grid, Proof cards remain hidden early in the reveal, the card grid then staggers in smoothly, and the section resets to hidden after leaving the viewport.
+- **Verdict:** PASS
+
+### Follow-Up QA - 2026-05-06 - Phased Reveal Smoothing
+
+- **Reviewer:** Codex
+- **Scope:** Focused correction for regular section reveal smoothness after user review found the previous wrapper-level fade still made each section feel like it popped in as a single block.
+- **Changes Verified:** `components/Reveal.tsx` no longer fades/blurs the whole wrapper. The wrapper now provides viewport state and a light position transition, while `.motion-item` children provide the visible blur/fade. `app/globals.css` now uses slower motion duration, larger blur distance, later body/card grid delay, and wider stagger spacing.
+- **Verification Results:** `npm.cmd run lint` PASS; `npm.cmd run build` PASS; Playwright production QA on `http://localhost:3107` confirmed a small scroll does not trigger Proof, Proof entry begins with the first header item partially visible and blurred, the title/copy follow, body cards remain hidden during early header reveal, body cards then stagger in one at a time, and leaving the section resets items back to hidden/blurred.
+- **Verdict:** PASS
+
+### Follow-Up QA - 2026-05-06 - Reduced-Motion Pacing Guard
+
+- **Reviewer:** Codex
+- **Scope:** Focused correction for browsers that match reduced motion, where section content could still appear all at once because the fallback removed transitions completely.
+- **Changes Verified:** The reduced-motion CSS now removes large movement but keeps a short staged opacity/blur reveal for `.motion-item` children. This preserves a calmer accessibility path while avoiding the instant all-at-once reveal.
+- **Verification Results:** `npm.cmd run lint` PASS; `npm.cmd run build` PASS; Playwright QA on `http://localhost:3000` with `reducedMotion: "no-preference"` and `reducedMotion: "reduce"` confirmed both modes reveal the header first, keep body cards hidden early, and stagger body cards later.
+- **Verdict:** PASS
+
+### Follow-Up QA - 2026-05-06 - Grouped Card Reveal And About Panel
+
+- **Reviewer:** Codex
+- **Scope:** Focused correction for card-grid reveal timing and the My Direction panel surface after user review.
+- **Changes Verified:** `app/globals.css` adds `motion-together` for card groups that should reveal as a smooth group rather than left-to-right. `components/ProofCards.tsx`, `components/SkillsSection.tsx`, and `components/ContactSection.tsx` use that mode. The reduced-motion branch also honors `motion-together` so card indexes do not reintroduce one-by-one timing. `components/AboutSection.tsx` now makes the whole panel surface a reveal item instead of leaving the panel border/background visible before entry.
+- **Verification Results:** `npm.cmd run lint` PASS; `npm.cmd run build` PASS; Playwright QA on `http://localhost:3000` confirmed the About panel is hidden before reveal and visible after settle, and Proof cards share matching opacity and transition delay during reveal in both normal and reduced-motion modes.
+- **Verdict:** PASS

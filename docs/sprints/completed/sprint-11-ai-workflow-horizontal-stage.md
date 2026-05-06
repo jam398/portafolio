@@ -6,7 +6,7 @@
 - **Status:** Completed
 - **Owner:** Jose Addiel Martinez De La Cruz
 - **Created:** 2026-05-04
-- **Last Updated:** 2026-05-04
+- **Last Updated:** 2026-05-06
 
 > **Artifact location rule:** Project workflow artifacts live under `docs/`.
 > - Specs: `docs/specs/spec-###-[slug].md`
@@ -35,7 +35,7 @@ In scope:
 - replace the current AI Workflow quiet list with a desktop horizontal scroll-driven card stage
 - make workflow cards move right to left as the user scrolls through the section
 - keep the title and intro compact enough to avoid nav clipping
-- provide a normal vertical card layout on mobile and reduced motion
+- provide a normal vertical card layout on mobile while keeping desktop horizontal in reduced-motion mode with transitions disabled
 - preserve the existing workflow content and truth-safe portfolio positioning
 
 ## Non-Goals
@@ -78,9 +78,9 @@ In scope:
 
 - **Objective:** Keep the section readable on mobile, short viewports, and reduced-motion settings.
 - **Files:** `components/AiWorkflowSection.tsx`, `app/globals.css`
-- **Changes:** Provide a static vertical card layout for smaller widths and reduced motion, with stable card dimensions and no clipping.
+- **Changes:** Provide a static vertical card layout for smaller widths, and keep desktop reduced-motion users on the horizontal rail with transitions disabled so the desktop layout does not fall back to the mobile stack.
 - **Unchanged:** Do not trap scrolling or require horizontal gestures.
-- **Verify After:** Mobile and reduced-motion views show all workflow cards in normal document flow.
+- **Verify After:** Mobile views show all workflow cards in normal document flow, and desktop reduced-motion views keep the horizontal card rail without animated transitions.
 
 ### Task 3. Update workflow artifacts
 
@@ -95,13 +95,13 @@ In scope:
 - The section must read as a practical workflow, not another project case study.
 - Desktop animation must be subordinate to readability.
 - The sticky stage must clear the navigation and avoid card clipping.
-- Mobile and reduced-motion users must receive static readable cards.
+- Mobile users must receive static readable cards. Desktop reduced-motion users must keep the horizontal rail with no animated transition.
 - No new claims, links, demos, or projects may be introduced.
 
 ## Deliverables
 
 - Desktop horizontal AI workflow stage
-- Static mobile and reduced-motion card fallback
+- Static mobile card fallback and no-transition desktop reduced-motion rail
 - Updated workflow documentation and implementation QA
 
 ## Acceptance Criteria
@@ -109,7 +109,8 @@ In scope:
 - AI workflow cards move from right to left during desktop scroll.
 - The section title, intro, and cards are not clipped by the sticky navigation.
 - No horizontal page overflow is introduced.
-- Mobile and reduced-motion layouts show all workflow cards in readable order.
+- Mobile layouts show all workflow cards in readable order.
+- Desktop reduced-motion layouts remain horizontal and step through cards without animated transition.
 - `npm run lint` and `npm run build` pass.
 
 ## Dependencies / Blockers
@@ -134,7 +135,7 @@ This sprint is one bounded UI refinement because it changes only the AI Workflow
 - Manual verification 1: desktop browser check confirms horizontal card movement, nav clearance, and no horizontal overflow
 - Manual verification 2: short-height desktop check confirms title and cards are not clipped
 - Manual verification 3: mobile browser check confirms static readable cards and no horizontal overflow
-- Manual verification 4: reduced-motion check confirms static readable behavior
+- Manual verification 4: reduced-motion desktop check confirms horizontal readable behavior with transitions disabled
 
 ## Completion Checklist
 
@@ -178,7 +179,7 @@ None.
 ### Verification Results
 
 - **Automated:** `npm run lint` PASS; `npm run build` PASS.
-- **Manual:** Playwright QA against `http://localhost:3000` confirmed desktop right-to-left card movement, active-card progression from card 1 to card 4, sticky nav clearance, no horizontal overflow, short-height card/title visibility, mobile static card layout, and reduced-motion static card layout.
+- **Manual:** Playwright QA against `http://localhost:3000` confirmed desktop right-to-left card movement, active-card progression from card 1 to card 4, sticky nav clearance, no horizontal overflow, short-height card/title visibility, mobile static card layout, and the reduced-motion behavior current at the time of the original sprint closeout.
 
 ### Carry-Forward Updates
 
@@ -196,6 +197,6 @@ None.
 - **Verdict:** PASS
 - **Reviewer:** GitHub Copilot
 - **Issues Found:** 1 resolved implementation issue. The first CSS pass inherited `overflow: hidden` from `section-band`, which defeated sticky positioning and caused nav overlap during scroll. The section now overrides that overflow while the card window still clips the horizontal track.
-- **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS; Playwright desktop QA at `1440x920` confirmed 4 workflow cards, right-to-left card movement, active-card progression, nav clearance, no horizontal overflow, and active-card viewport fit. Short-height desktop QA at `1531x634` confirmed title/card visibility and no horizontal overflow. Mobile QA at `390x844` confirmed static grid cards and no horizontal overflow. Reduced-motion QA confirmed a static grid and no horizontal overflow. A follow-up spacing attempt made the rail too fast, so the final fix restores a controlled sticky stage and centers each active card during its scroll segment. Later tuning reduced the desktop stage height to `205vh` and added explicit hold zones for cards 2 and 3, while preserving the final card hold. The final interaction update changes desktop behavior to discrete wheel-step stops: each wheel step advances one card, the page scroll position is held while moving through cards 1 through 4, and normal page scroll releases after card 4. Fresh production QA on `http://localhost:3065` confirmed the sequence `0,1,2,3`, no scroll movement while stepping cards, release after card 4, smooth `460ms` transform transitions, active-card readability, mobile static cards, reduced-motion static cards, and no horizontal overflow. Follow-up QA on `http://localhost:3067` fixed bottom-up capture: when Portfolio Strategy is visible, upward wheel input now scrolls the page instead of rewinding the workflow cards; once Portfolio Strategy is no longer visible and the workflow frame is dominant again, upward wheel input can rewind from card 4 to card 3. The same pass confirmed no horizontal overflow, mobile static cards, and reduced-motion static cards. Copy follow-up on `http://localhost:3070` updated the four workflow cards to explicitly reference spec and sprint planning, implementation support, testing and QA, and documentation traceability. Playwright confirmed the updated card sequence, no desktop/mobile/reduced-motion clipping, and no horizontal overflow.
+- **Final Verification Results:** `npm run lint` PASS; `npm run build` PASS; Playwright desktop QA at `1440x920` confirmed 4 workflow cards, right-to-left card movement, active-card progression, nav clearance, no horizontal overflow, and active-card viewport fit. Short-height desktop QA at `1531x634` confirmed title/card visibility and no horizontal overflow. Mobile QA at `390x844` confirmed static grid cards and no horizontal overflow. Reduced-motion QA originally confirmed a static grid and no horizontal overflow. A follow-up spacing attempt made the rail too fast, so the final fix restores a controlled sticky stage and centers each active card during its scroll segment. Later tuning reduced the desktop stage height to `205vh` and added explicit hold zones for cards 2 and 3, while preserving the final card hold. The final interaction update changes desktop behavior to discrete wheel-step stops: each wheel step advances one card, the page scroll position is held while moving through cards 1 through 4, and normal page scroll releases after card 4. Fresh production QA on `http://localhost:3065` confirmed the sequence `0,1,2,3`, no scroll movement while stepping cards, release after card 4, smooth `460ms` transform transitions, active-card readability, mobile static cards, reduced-motion static cards, and no horizontal overflow. Follow-up QA on `http://localhost:3067` fixed bottom-up capture: when Portfolio Strategy is visible, upward wheel input now scrolls the page instead of rewinding the workflow cards; once Portfolio Strategy is no longer visible and the workflow frame is dominant again, upward wheel input can rewind from card 4 to card 3. The same pass confirmed no horizontal overflow, mobile static cards, and reduced-motion static cards. Copy follow-up on `http://localhost:3070` updated the four workflow cards to explicitly reference spec and sprint planning, implementation support, testing and QA, and documentation traceability. Playwright confirmed the updated card sequence, no desktop/mobile/reduced-motion clipping, and no horizontal overflow. Desktop reduced-motion follow-up on `http://localhost:3092` changed the fallback rule so reduced motion no longer switches desktop to the vertical mobile stack; production QA confirmed normal desktop and desktop reduced-motion both use `display: flex`, step through cards `0,1,2,3`, preserve zero horizontal overflow, and reduced motion disables the track transition (`0s`). Mobile QA at `390x844` still confirmed the static vertical grid with no horizontal overflow.
 - **Deviations From Plan:** Used the already-running local dev server on `http://localhost:3000` for browser QA because attempting a second Next dev server on port `3061` was blocked by the existing repo dev server.
 - **Carry-Forward Updates For Next Sprint:** Sprint 3 should verify the final submitted page after the completed Sprint 11 AI Workflow stage.

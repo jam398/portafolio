@@ -17,7 +17,7 @@ export function ContactSection() {
             copy={contactSection.copy}
           />
 
-          <div className="motion-stagger grid gap-3 lg:grid-cols-3">
+          <div className="motion-stagger motion-together grid gap-3 lg:grid-cols-3">
             {contactMethods.map((method, index) => (
               <article
                 key={method.label}

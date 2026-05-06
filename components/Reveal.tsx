@@ -13,9 +13,10 @@ export function Reveal({
   children,
   className,
   delay = 0,
-  threshold = 0.18,
+  threshold = 0.42,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
+  const revealedRef = useRef(false);
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
@@ -25,23 +26,34 @@ export function Reveal({
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setRevealed(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold,
-        rootMargin: "0px 0px -8% 0px",
-      },
-    );
+    let frameId = 0;
 
-    observer.observe(element);
+    const updateReveal = () => {
+      const rect = element.getBoundingClientRect();
+      const enterLine = window.innerHeight * (1 - threshold);
+      const exitLine = window.innerHeight * 0.14;
+      const shouldReveal = rect.top <= enterLine && rect.bottom >= exitLine;
+
+      if (revealedRef.current !== shouldReveal) {
+        revealedRef.current = shouldReveal;
+        setRevealed(shouldReveal);
+      }
+    };
+
+    const requestRevealUpdate = () => {
+      cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(updateReveal);
+    };
+
+    updateReveal();
+
+    window.addEventListener("scroll", requestRevealUpdate, { passive: true });
+    window.addEventListener("resize", requestRevealUpdate);
 
     return () => {
-      observer.disconnect();
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", requestRevealUpdate);
+      window.removeEventListener("resize", requestRevealUpdate);
     };
   }, [threshold]);
 

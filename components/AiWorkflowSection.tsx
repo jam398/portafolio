@@ -75,23 +75,21 @@ export function AiWorkflowSection() {
       const frameVisibleHeight =
         Math.min(frameRect.bottom, window.innerHeight) - Math.max(frameRect.top, navBottom);
       const frameIsReadable =
-        frameVisibleHeight >= Math.min(frameRect.height * 0.62, window.innerHeight * 0.5);
-      const sectionIsPinned =
-        sectionRect.top <= navBottom + 48 && sectionRect.bottom >= window.innerHeight * 0.72;
+        frameVisibleHeight >= Math.min(frameRect.height * 0.42, window.innerHeight * 0.36);
+      const sectionHasEntered = sectionRect.top <= window.innerHeight * 0.28;
+      const sectionHasRoom = sectionRect.bottom >= window.innerHeight * 0.58;
       const nextSectionIsVisible = nextSectionTop < window.innerHeight;
 
       if (direction < 0 && nextSectionIsVisible) {
         return false;
       }
 
-      return frameIsReadable && sectionIsPinned;
+      return frameIsReadable && sectionHasEntered && sectionHasRoom;
     };
 
     const updateStage = () => {
       const desktop = desktopMedia.matches;
-      const reducedMotion = reducedMotionMedia.matches;
-
-      if (!desktop || reducedMotion) {
+      if (!desktop) {
         activeIndexRef.current = 0;
         setTranslateX(0);
         setProgress(0);
@@ -116,9 +114,8 @@ export function AiWorkflowSection() {
 
     const handleWheel = (event: WheelEvent) => {
       const desktop = desktopMedia.matches;
-      const reducedMotion = reducedMotionMedia.matches;
 
-      if (!desktop || reducedMotion || Math.abs(event.deltaY) < 8) {
+      if (!desktop || Math.abs(event.deltaY) < 8) {
         return;
       }
 

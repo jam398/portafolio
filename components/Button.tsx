@@ -15,6 +15,7 @@ export function Button({
   tone = "primary",
   disabled = false,
 }: ButtonProps) {
+  const opensNewWindow = href?.startsWith("http://") || href?.startsWith("https://");
   const baseClassName =
     "button-surface inline-flex min-h-12 items-center justify-center gap-3 rounded-full border px-5 py-3 text-sm font-semibold tracking-[0.08em] uppercase";
 
@@ -40,6 +41,8 @@ export function Button({
   return (
     <a
       href={href}
+      target={opensNewWindow ? "_blank" : undefined}
+      rel={opensNewWindow ? "noopener noreferrer" : undefined}
       className={`${baseClassName} ${toneClassName} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgba(6,12,22,0.92)]`}
     >
       {label}
