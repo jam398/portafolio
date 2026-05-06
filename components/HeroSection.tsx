@@ -6,7 +6,11 @@ import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { heroActions, heroTags, profile } from "@/data/portfolio";
 
+const deploymentBasePath = process.env.GITHUB_ACTIONS === "true" ? "/portafolio" : "";
+
 export function HeroSection() {
+  const profilePhotoSrc = `${deploymentBasePath}${profile.photo.src}`;
+
   return (
     <Reveal className="motion-section" delay={40}>
       <section className="hero-shell panel mt-4 px-5 py-7 sm:px-8 sm:py-9 lg:px-12 lg:py-12">
@@ -83,7 +87,7 @@ export function HeroSection() {
               <div className="hero-profile-lockup">
                 <div className="hero-profile-photo">
                   <Image
-                    src={profile.photo.src}
+                    src={profilePhotoSrc}
                     alt={profile.photo.alt}
                     width={160}
                     height={160}
