@@ -231,3 +231,12 @@ None.
 - **Final Verification Results:** GitHub profile, LinkedIn profile, and Email were user-confirmed and applied. Resume remains intentionally removed. Debt Pressure Lab source checks against `jam398/student-reality-lab-martinezdelacruz` verified current portfolio claims for Next.js/React/TypeScript, Tailwind CSS 4, Better Auth, SQLite/libSQL, Drizzle ORM, MCP SDK, OpenAI/AI chat, SSE streaming, 16 tools, calculation traces, workspace, source-backed data, and 111 tests. README was created and verified to include actual local commands (`npm install`, `npm run dev`, `npm run build`, `npm run start`, `npm run lint`), the no-live-demo truth note, and workflow artifact references. `npm run lint` PASS. `npm run build` PASS. Production browser QA on `http://localhost:3069` PASS for desktop, mobile, and reduced-motion views: no horizontal overflow, no console errors, confirmed GitHub/LinkedIn/Email/Debt Pressure Lab links, no stale pending-contact text, planned Assignment 2 project remains visibly planned, AI Workflow sequence advances `01` to `04`, page scroll is held during card stepping, scroll releases after card 4, and upward scroll near Portfolio Strategy does not rewind the workflow cards.
 - **Deviations From Plan:** None.
 - **Carry-Forward Updates For Next Sprint:** None. Final submission closeout is complete.
+
+### Follow-Up QA - 2026-05-12 - TriagePilot Public Repo Link
+
+- **Reviewer:** Codex
+- **Scope:** Updated a truth-sensitive project link after the user provided the public TriagePilot AI repository.
+- **Source Checked:** `https://github.com/jam398/ticket`
+- **Change Verified:** `data/portfolio.ts` now uses `https://github.com/jam398/ticket` as the TriagePilot AI repo URL, and the project scene wording no longer says there is no public repository.
+- **Verification Results:** `npm.cmd run lint` PASS; `npm.cmd run build` PASS.
+- **Verdict:** PASS

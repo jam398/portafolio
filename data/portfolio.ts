@@ -529,7 +529,7 @@ export const featuredProjects: FeaturedProject[] = [
       "TriagePilot AI is a full-stack support ticket dashboard with a Next.js operations UI, FastAPI backend, SQLModel and SQLite persistence, structured AI triage, similar solved-ticket retrieval, editable apply flows, activity events, and resolution notes that update future ticket memory.",
     proof:
       "This project shows a practical human-in-the-loop AI workflow: AI can summarize, classify, prioritize, recommend actions, and retrieve similar solved tickets, but ticket fields only change after a human reviews and applies the triage fields.",
-    repo: "",
+    repo: "https://github.com/jam398/ticket",
     tags: [
       "Next.js",
       "React",
@@ -622,7 +622,7 @@ export const featuredProjects: FeaturedProject[] = [
             "TriagePilot AI shows backend modeling, API design, frontend operations UI, retrieval grounding, structured AI output, human review, testing, and documentation in one support workflow.",
           highlights: [
             "The source project passed 43 backend tests during verification.",
-            "No public repo link is claimed because the local folder is not a Git repository.",
+            "The public source repository is available for review.",
           ],
           signalTags: ["43 tests", "Truthful link boundary"],
         },
